@@ -1,0 +1,44 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+<Scripts>
+	<Script file="HideChat.lua" />
+</Scripts>
+
+<Assets>
+	<Texture name="hc_icon" file="hc_icon.tga" />
+	<Texture name="hc_icon_over" file="hc_icon_over.tga" />
+</Assets>
+
+<Windows>
+
+<Window name="HideChatMapIcon" layer="default" movable="false" popable="false" savesettings="true">
+		<Size>
+			<AbsPoint x="32" y="32"/>
+		</Size>
+		<Anchors>
+			<Anchor point="topleft" relativeTo="EA_Window_OverheadMapMapFrame" relativePoint="center">
+				<AbsPoint x="4" y="58" />
+			</Anchor>
+		</Anchors>
+		<Windows>
+			<Button name="$parentButton" inherits="DefaultButton" backgroundtexture="hc_icon" highlighttexture="hc_icon_over" layer="default" texturescale="1">
+				<Size>
+					<AbsPoint x="32" y="32"/>
+				</Size>
+				<EventHandlers>
+					<EventHandler event="OnLButtonUp" function="HideChat.HideIt"/>
+				</EventHandlers>
+				<TexSlices>
+					<Normal id="SquareButton" /> 
+					<NormalHighlit id="SquareButton-Rollover" /> 
+					<Pressed id="SquareButton-Depressed" /> 
+					<PressedHighlit id="SquareButton-Depressed" /> 
+				</TexSlices>
+				<Anchors>
+					<Anchor point="topleft" relativeTo="$parent" relativePoint="topleft"/>
+				</Anchors>
+			</Button>
+		</Windows>
+	</Window>
+</Windows>
+
+</Interface>
